@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="HireHub - Find your dream job today. Search thousands of jobs from top companies. Premium job portal with verified companies and remote opportunities." />
+  <title>HireHub — Find Your Dream Job Today</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader-logo">💼 <span>HireHub</span></div>
+    <div class="loader-bar">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- Background Blobs -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" onclick="showPage('home')">
+          <div class="logo-icon">💼</div>
+          <span class="logo-text">HireHub</span>
+        </a>
+        <div class="nav-menu">
+          <span class="nav-link active" onclick="showPage('home')">Home</span>
+          <span class="nav-link" onclick="showPage('jobs')">Jobs</span>
+          <span class="nav-link" onclick="showPage('company-detail')">Companies</span>
+          <span class="nav-link" onclick="scrollToSection('categories-section')">Categories</span>
+          <span class="nav-link" onclick="scrollToSection('about-section')">About</span>
+          <span class="nav-link" onclick="scrollToSection('newsletter-section')">Contact</span>
+        </div>
+        <div class="nav-actions">
+          <button class="btn btn-outline btn-sm" onclick="showPage('login')">Login</button>
+          <button class="btn btn-primary btn-sm" onclick="showPage('register')">Register</button>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <span class="nav-link" onclick="showPage('home');closeMobileMenu()">Home</span>
+    <span class="nav-link" onclick="showPage('jobs');closeMobileMenu()">Jobs</span>
+    <span class="nav-link" onclick="showPage('company-detail');closeMobileMenu()">Companies</span>
+    <span class="nav-link" onclick="closeMobileMenu()">Categories</span>
+    <span class="nav-link" onclick="closeMobileMenu()">About</span>
+    <span class="nav-link" onclick="closeMobileMenu()">Contact</span>
+    <div class="mobile-menu-actions">
+      <button class="btn btn-outline btn-sm" onclick="showPage('login');closeMobileMenu()">Login</button>
+      <button class="btn btn-primary btn-sm" onclick="showPage('register');closeMobileMenu()">Register</button>
+    </div>
+  </div>
+
+  <!-- ============================================
+     HOME PAGE
+     ============================================ -->
+  <div id="page-home" class="page active">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="dot"></span>
+              🚀 Over 50,000 jobs available now
+            </div>
+            <h1 class="hero-title">
+              Find Your <span class="gradient-text" id="typing-text">Dream Job</span>
+              <span class="typing-cursor"></span> Today
+            </h1>
+            <p class="hero-subtitle">
+              Connect with top companies, explore thousands of opportunities, and take the next step in your career
+              journey. Your dream job is just one click away.
+            </p>
+
+            <div class="hero-search">
+              <div class="search-field">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.35-4.35" />
+                </svg>
+                <input type="text" placeholder="Job title, keywords..." id="hero-search-input" />
+              </div>
+              <div class="search-field">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <select>
+                  <option>All Locations</option>
+                  <option>Remote</option>
+                  <option>New York, US</option>
+                  <option>San Francisco, US</option>
+                  <option>London, UK</option>
+                  <option>Berlin, Germany</option>
+                  <option>Singapore</option>
+                  <option>Bangalore, India</option>
+                  <option>Toronto, Canada</option>
+                </select>
+              </div>
+              <button class="search-btn" onclick="showPage('jobs')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.35-4.35" />
+                </svg>
+                Search Jobs
+              </button>
+            </div>
+
+            <div class="hero-tags">
+              <span>Popular:</span>
+              <span class="tag" onclick="showPage('jobs')">🖥️ Software Engineer</span>
+              <span class="tag" onclick="showPage('jobs')">🤖 AI Engineer</span>
+              <span class="tag" onclick="showPage('jobs')">☁️ Cloud Architect</span>
+              <span class="tag" onclick="showPage('jobs')">📊 Data Scientist</span>
+              <span class="tag" onclick="showPage('jobs')">🔒 Cybersecurity</span>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-illustration">
+              <div class="hero-main-card">
+                <div class="hero-card-header">
+                  <div class="hero-card-logo">🏢</div>
+                  <div class="hero-card-meta">
+                    <h3>Senior Frontend Engineer</h3>
+                    <p>📍 Google · Mountain View, CA</p>
+                  </div>
+                </div>
+                <div class="hero-card-salary">
+                  <span class="salary">$180K–$240K</span>
+                  <span class="badge badge-emerald">Remote</span>
+                </div>
+                <div class="hero-card-skills">
+                  <span class="badge badge-primary">React</span>
+                  <span class="badge badge-violet">TypeScript</span>
+                  <span class="badge badge-slate">Next.js</span>
+                </div>
+                <div class="hero-card-footer">
+                  <div class="hero-card-applicants">
+                    <div class="applicant-avatars">
+                      <div class="avatar avatar-1">JD</div>
+                      <div class="avatar avatar-2">SK</div>
+                      <div class="avatar avatar-3">AM</div>
+                      <div class="avatar avatar-4">+</div>
+                    </div>
+                    <span style="font-size:.75rem;color:var(--slate-500);margin-left:.5rem">248 applied</span>
+                  </div>
+                  <button class="apply-btn" onclick="showPage('job-detail')">Apply Now</button>
+                </div>
+              </div>
+
+              <div class="hero-floating-cards">
+                <div class="float-card float-card-1">
+                  <div class="float-card-icon purple">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <div class="float-card-text">
+                    <h4>Job Matched!</h4>
+                    <p>98% profile match</p>
+                  </div>
+                </div>
+                <div class="float-card float-card-2">
+                  <div class="float-card-icon emerald">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <line x1="12" y1="1" x2="12" y2="23" />
+                      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                  </div>
+                  <div class="float-card-text">
+                    <h4>$220K Avg</h4>
+                    <p>Top Tech Salaries</p>
+                  </div>
+                </div>
+                <div class="float-card float-card-3">
+                  <div class="float-card-icon amber">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  </div>
+                  <div class="float-card-text">
+                    <h4>Top Rated</h4>
+                    <p>4.9 ★ platform</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="stat-icon indigo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+            </div>
+            <span class="stat-number" data-target="50">0K+</span>
+            <span class="stat-label">Active Jobs</span>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-icon emerald">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </div>
+            <span class="stat-number" data-target="10">0K+</span>
+            <span class="stat-label">Companies</span>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-icon purple">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <span class="stat-number" data-target="1">0M+</span>
+            <span class="stat-label">Candidates</span>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat-icon rose">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </div>
+            <span class="stat-number" data-target="95">0%</span>
+            <span class="stat-label">Success Rate</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED JOBS -->
+    <section class="featured-jobs section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-badge">✨ Featured</div>
+          <h2 class="section-title">Latest <span>Job Openings</span></h2>
+          <p class="section-subtitle">Discover hand-picked opportunities from the world's most innovative companies</p>
+        </div>
+
+        <div class="jobs-grid">
+
+          <!-- Job 1 -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="0" onclick="showPage('job-detail')">
+            <div class="job-card-top">
+              <div class="job-company">
+                <div class="company-logo logo-google">G<div class="verified-badge">✓</div>
+                </div>
+                <div class="company-info">
+                  <h4>Google</h4>
+                  <p>Mountain View, CA</p>
+                </div>
+              </div>
+              <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                </svg>
+              </button>
+            </div>
+            <div class="job-title">Senior Frontend Engineer</div>
+            <div class="job-meta">
+              <span class="meta-item">📍 Remote / Hybrid</span>
+              <span class="meta-item">💼 5+ years exp.</span>
+            </div>
+            <div class="job-skills">
+              <span class="badge badge-primary">React</span>
+              <span class="badge badge-violet">TypeScript</span>
+              <span class="badge badge-emerald">Next.js</span>
+            </div>
+            <div class="job-card-footer">
+              <div>
+                <div class="salary-range">$180K–$240K</div>
+                <div class="posted-time">2 days ago</div>
+              </div>
+              <div style="display:flex;gap:.5rem;align-items:center">
+                <span class="badge badge-emerald">Remote</span>
+                <button class="apply-btn">Apply</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="50" onclick="showPage('job-detail')">
+            <div class="job-card-top">
+              <div class="job-company">
+                <div class="company-logo logo-meta">M<div class="verified-badge">✓</div>
+                </div>
+                <div class="company-info">
+                  <h4>Meta</h4>
+                  <p>Menlo Park, CA</p>
+                </div>
+              </div>
+              <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                </svg>
+              </button>
+            </div>
+            <div class="job-title">AI/ML Research Engineer</div>
+            <div class="job-meta">
+              <span class="meta-item">📍 Menlo Park</span>
+              <span class="meta-item">💼 3+ years exp.</span>
+            </div>
+            <div class="job-skills">
+              <span class="badge badge-primary">Python</span>
+              <span class="badge badge-violet">PyTorch</span>
+              <span class="badge badge-amber">LLMs</span>
+            </div>
+            <div class="job-card-footer">
+              <div>
+                <div class="salary-range">$200K–$280K</div>
+                <div class="posted-time">1 day ago</div>
+              </div>
+              <div style="display:flex;gap:.5rem;align-items:center">
+                <span class="badge badge-primary">Full-time</span>
+                <button class="apply-btn">Apply</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="100" onclick="showPage('job-detail')">
+            <div class="job-card-top">
+              <div class="job-company">
+                <div class="company-logo logo-amazon">A<div class="verified-badge">✓</div>
+                </div>
+                <div class="company-info">
+                  <h4>Amazon</h4>
+                  <p>Seattle, WA</p>
+                </div>
+              </div>
+              <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                </svg>
+              </button>
+            </div>
+            <div class="job-title">Cloud Solutions Architect</div>
+            <div class="job-meta">
+              <span class="meta-item">📍 Seattle / Remote</span>
+              <span class="meta-item">💼 7+ years exp.</span>
+            </div>
+            <div class="job-skills">
+              <span class="badge badge-primary">AWS</span>
+              <span class="badge badge-emerald">Terraform</span>
+              <span class="badge badge-slate">Kubernetes</span>
+            </div>
+            <div class="job-card-footer">
+              <div>
+                <div class="salary-range">$220K–$300K</div>
+                <div class="posted-time">3 days ago</div>
+              </div>
+              <div style="display:flex;gap:.5rem;align-items:center">
+                <span class="badge badge-violet">Hybrid</span>
+                <button class="apply-btn">Apply</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 4 -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="0" onclick="showPage('job-detail')">
+            <div class="job-card-top">
+              <div class="job-company">
+                <div class="company-logo logo-netflix">N<div class="verified-badge">✓</div>
+                </div>
+                <div class="company-info">
+                  <h4>Netflix</h4>
+                  <p>Los Gatos, CA</p>
+                </div>
+              </div>
+              <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                </svg>
+              </button>
+            </div>
+            <div class="job-title">Senior Data Scientist</div>
+            <div class="job-meta">
+              <span class="meta-item">📍 Remote</span>
+              <span class="meta-item">💼 4+ years exp.</span>
+            </div>
+            <div class="job-skills">
+              <span class="badge badge-primary">Python</span>
+              <span class="badge badge-rose">Spark</span>
+              <span class="badge badge-violet">ML</span>
+            </div>
+            <div class="job-card-footer">
+              <div>
+                <div class="salary-range">$190K–$260K</div>
+                <div class="posted-time">Today</div>
+              </div>
+              <div style="display:flex;gap:.5rem;align-items:center">
+                <span class="badge badge-emerald">Remote</span>
+                <button class="apply-btn">Apply</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 5 -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="50" onclick="showPage('job-detail')">
+            <div class="job-card-top">
+              <div class="job-company">
+                <div class="company-logo logo-stripe">S<div class="verified-badge">✓</div>
+                </div>
+                <div class="company-info">
+                  <h4>Stripe</h4>
+                  <p>San Francisco, CA</p>
+                </div>
+              </div>
+              <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                </svg>
+              </button>
+            </div>
+            <div class="job-title">Backend Platform Engineer</div>
+            <div class="job-meta">
+              <span class="meta-item">📍 SF / Remote</span>
+              <span class="meta-item">💼 5+ years exp.</span>
+            </div>
+            <div class="job-skills">
+              <span class="badge badge-primary">Go</span>
+              <span class="badge badge-violet">Rust</span>
+              <span class="badge badge-emerald">gRPC</span>
+            </div>
+            <div class="job-card-footer">
+              <div>
+                <div class="salary-range">$195K–$270K</div>
+                <div class="posted-time">5 days ago</div>
+              </div>
+              <div style="display:flex;gap:.5rem;align-items:center">
+                <span class="badge badge-violet">Hybrid</span>
+                <button class="apply-btn">Apply</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job 6 -->
+          <div class="job-card" data-aos="fade-up" data-aos-delay="100" onclick="showPage('job-detail')">
+            <div class="job-card-top">
+              <div class="job-company">
+                <div class="company-logo logo-figma">F<div class="verified-badge">✓</div>
+                </div>
+                <div class="company-info">
+                  <h4>Figma</h4>
+                  <p>San Francisco, CA</p>
+                </div>
+              </div>
+              <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                </svg>
+              </button>
+            </div>
+            <div class="job-title">Product Designer (UI/UX)</div>
+            <div class="job-meta">
+              <span class="meta-item">📍 Remote</span>
+              <span class="meta-item">💼 3+ years exp.</span>
+            </div>
+            <div class="job-skills">
+              <span class="badge badge-primary">Figma</span>
+              <span class="badge badge-violet">Prototyping</span>
+              <span class="badge badge-rose">Research</span>
+            </div>
+            <div class="job-card-footer">
+              <div>
+                <div class="salary-range">$160K–$220K</div>
+                <div class="posted-time">1 week ago</div>
+              </div>
+              <div style="display:flex;gap:.5rem;align-items:center">
+                <span class="badge badge-emerald">Remote</span>
+                <button class="apply-btn">Apply</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="jobs-footer" data-aos="fade-up">
+          <button class="btn btn-outline btn-lg" onclick="showPage('jobs')">
+            View All Jobs &nbsp;→
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOP COMPANIES -->
+    <section class="top-companies section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-badge">🏆 Top Companies</div>
+          <h2 class="section-title">Trusted by <span>World-Class</span> Companies</h2>
+          <p class="section-subtitle">Join thousands of professionals working at these industry-leading companies</p>
+        </div>
+        <div class="companies-grid">
+          <div class="company-card" data-aos="zoom-in" data-aos-delay="0" onclick="showPage('company-detail')">
+            <div class="company-card-logo logo-google">G</div>
+            <div class="company-card-name">Google</div>
+            <div class="company-card-jobs"><span>128</span> open jobs</div>
+          </div>
+          <div class="company-card" data-aos="zoom-in" data-aos-delay="50" onclick="showPage('company-detail')">
+            <div class="company-card-logo logo-microsoft">M</div>
+            <div class="company-card-name">Microsoft</div>
+            <div class="company-card-jobs"><span>94</span> open jobs</div>
+          </div>
+          <div class="company-card" data-aos="zoom-in" data-aos-delay="100" onclick="showPage('company-detail')">
+            <div class="company-card-logo logo-amazon">A</div>
+            <div class="company-card-name">Amazon</div>
+            <div class="company-card-jobs"><span>156</span> open jobs</div>
+          </div>
+          <div class="company-card" data-aos="zoom-in" data-aos-delay="150" onclick="showPage('company-detail')">
+            <div class="company-card-logo logo-meta">M</div>
+            <div class="company-card-name">Meta</div>
+            <div class="company-card-jobs"><span>72</span> open jobs</div>
+          </div>
+          <div class="company-card" data-aos="zoom-in" data-aos-delay="200" onclick="showPage('company-detail')">
+            <div class="company-card-logo logo-apple">A</div>
+            <div class="company-card-name">Apple</div>
+            <div class="company-card-jobs"><span>88</span> open jobs</div>
+          </div>
+          <div class="company-card" data-aos="zoom-in" data-aos-delay="250" onclick="showPage('company-detail')">
+            <div class="company-card-logo logo-netflix">N</div>
+            <div class="company-card-name">Netflix</div>
+            <div class="company-card-jobs"><span>34</span> open jobs</div>
+          </div>
+          <div class="company-card" data-aos="zoom-in" data-aos-delay="300" onclick="showPage('company-detail')">
+            <div class="company-card-logo logo-stripe">S</div>
+            <div class="company-card-name">Stripe</div>
+            <div class="company-card-jobs"><span>51</span> open jobs</div>
+          </div>
+          <div class="company-card" data-aos="zoom-in" data-aos-delay="350" onclick="showPage('company-detail')">
+            <div class="company-card-logo logo-spotify">S</div>
+            <div class="company-card-name">Spotify</div>
+            <div class="company-card-jobs"><span>47</span> open jobs</div>
+          </div>
+          <div class="company-card" data-aos="zoom-in" data-aos-delay="400" onclick="showPage('company-detail')">
+            <div class="company-card-logo logo-airbnb">A</div>
+            <div class="company-card-name">Airbnb</div>
+            <div class="company-card-jobs"><span>29</span> open jobs</div>
+          </div>
+          <div class="company-card" data-aos="zoom-in" data-aos-delay="450" onclick="showPage('company-detail')">
+            <div class="company-card-logo logo-uber">U</div>
+            <div class="company-card-name">Uber</div>
+            <div class="company-card-jobs"><span>63</span> open jobs</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories section" id="categories-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-badge">🗂️ Browse Categories</div>
+          <h2 class="section-title">Explore by <span>Job Category</span></h2>
+          <p class="section-subtitle">Find opportunities tailored to your expertise and passion</p>
+        </div>
+        <div class="categories-grid">
+          <div class="category-card cat-1" data-aos="fade-up" data-aos-delay="0" onclick="showPage('jobs')">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </div>
+            <div class="category-name">Software Dev</div>
+            <div class="category-count"><span>2,847</span> jobs</div>
+          </div>
+          <div class="category-card cat-2" data-aos="fade-up" data-aos-delay="50" onclick="showPage('jobs')">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 1 0 10 10" />
+                <path d="M12 8v4l3 3" />
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+              </svg>
+            </div>
+            <div class="category-name">AI / Machine Learning</div>
+            <div class="category-count"><span>1,423</span> jobs</div>
+          </div>
+          <div class="category-card cat-3" data-aos="fade-up" data-aos-delay="100" onclick="showPage('jobs')">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+              </svg>
+            </div>
+            <div class="category-name">Cloud & DevOps</div>
+            <div class="category-count"><span>1,891</span> jobs</div>
+          </div>
+          <div class="category-card cat-4" data-aos="fade-up" data-aos-delay="150" onclick="showPage('jobs')">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+              </svg>
+            </div>
+            <div class="category-name">Data Science</div>
+            <div class="category-count"><span>1,205</span> jobs</div>
+          </div>
+          <div class="category-card cat-5" data-aos="fade-up" data-aos-delay="200" onclick="showPage('jobs')">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="m9 9 6 6m0-6-6 6" />
+              </svg>
+            </div>
+            <div class="category-name">Cybersecurity</div>
+            <div class="category-count"><span>847</span> jobs</div>
+          </div>
+          <div class="category-card cat-6" data-aos="fade-up" data-aos-delay="0" onclick="showPage('jobs')">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <div class="category-name">Frontend Dev</div>
+            <div class="category-count"><span>1,634</span> jobs</div>
+          </div>
+          <div class="category-card cat-7" data-aos="fade-up" data-aos-delay="50" onclick="showPage('jobs')">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
+                <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3" />
+              </svg>
+            </div>
+            <div class="category-name">Backend Dev</div>
+            <div class="category-count"><span>1,789</span> jobs</div>
+          </div>
+          <div class="category-card cat-8" data-aos="fade-up" data-aos-delay="100" onclick="showPage('jobs')">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                <line x1="12" y1="18" x2="12.01" y2="18" />
+              </svg>
+            </div>
+            <div class="category-name">Mobile Dev</div>
+            <div class="category-count"><span>921</span> jobs</div>
+          </div>
+          <div class="category-card cat-9" data-aos="fade-up" data-aos-delay="150" onclick="showPage('jobs')">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div class="category-name">Python / Django</div>
+            <div class="category-count"><span>1,102</span> jobs</div>
+          </div>
+          <div class="category-card cat-10" data-aos="fade-up" data-aos-delay="200" onclick="showPage('jobs')">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+              </svg>
+            </div>
+            <div class="category-name">Blockchain / Web3</div>
+            <div class="category-count"><span>567</span> jobs</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-us section" id="about-section">
+      <div class="container">
+        <div class="why-grid">
+          <div class="why-visual" data-aos="fade-right">
+            <div class="why-main-img">
+              <div class="why-illustration">
+                <div class="why-chart">
+                  <div class="chart-bar bar-1" data-val="60%"></div>
+                  <div class="chart-bar bar-2" data-val="80%"></div>
+                  <div class="chart-bar bar-3" data-val="70%"></div>
+                  <div class="chart-bar bar-4" data-val="90%"></div>
+                  <div class="chart-bar bar-5" data-val="75%"></div>
+                  <div class="chart-bar bar-6" data-val="85%"></div>
+                </div>
+                <div class="why-stat-cards">
+                  <div class="why-stat-card">
+                    <div class="value">95%</div>
+                    <div class="label">Placement Rate</div>
+                  </div>
+                  <div class="why-stat-card">
+                    <div class="value">14 Days</div>
+                    <div class="label">Avg. Time to Hire</div>
+                  </div>
+                  <div class="why-stat-card">
+                    <div class="value">4.9★</div>
+                    <div class="label">User Rating</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="why-content" data-aos="fade-left">
+            <div class="section-badge">💡 Why HireHub</div>
+            <h2 class="section-title" style="text-align:left">Why Thousands Choose <span>HireHub</span></h2>
+            <p class="section-subtitle" style="text-align:left;max-width:100%;margin-bottom:2rem">We've built the most
+              comprehensive and user-friendly job platform that connects exceptional talent with world-class companies.
+            </p>
+            <div class="why-features">
+              <div class="feature-card">
+                <div class="feature-icon fi-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                  </svg>
+                </div>
+                <div class="feature-content">
+                  <h3>Lightning Fast Hiring</h3>
+                  <p>Our AI-powered matching gets you interviews within 48 hours of applying to your dream role.</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon fi-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <div class="feature-content">
+                  <h3>100% Verified Companies</h3>
+                  <p>Every company on our platform is manually vetted and verified so you never waste your time.</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon fi-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <div class="feature-content">
+                  <h3>Trusted & Secure Platform</h3>
+                  <p>Your data is protected with enterprise-grade security and we never sell your information.</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon fi-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                </div>
+                <div class="feature-content">
+                  <h3>Remote-First Opportunities</h3>
+                  <p>50,000+ remote jobs from global companies. Work from anywhere, live anywhere.</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon fi-5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  </svg>
+                </div>
+                <div class="feature-content">
+                  <h3>Career Growth Analytics</h3>
+                  <p>AI insights on salary benchmarks, skill gaps, and personalized career path recommendations.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-badge">💬 Testimonials</div>
+          <h2 class="section-title">What Our <span>Users Say</span></h2>
+          <p class="section-subtitle">Real stories from real people who found their dream jobs through HireHub</p>
+        </div>
+        <div class="testimonials-slider" data-aos="fade-up">
+          <div class="testimonials-track" id="testimonials-track">
+
+            <div class="testimonial-card">
+              <div class="testimonial-rating">★★★★★</div>
+              <div class="testimonial-text">HireHub completely changed my career trajectory. Within 2 weeks of signing
+                up, I had 5 interviews and landed a senior role at Google with a 40% salary increase. The AI matching is
+                absolutely incredible.</div>
+              <div class="testimonial-author">
+                <div class="author-avatar" style="background:linear-gradient(135deg,#4f46e5,#7c3aed)">JD</div>
+                <div class="author-info">
+                  <h4>James Davidson</h4>
+                  <p>Senior Engineer @ Google · San Francisco</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-rating">★★★★★</div>
+              <div class="testimonial-text">As a recruiter, HireHub has transformed how we hire. The quality of
+                candidates is exceptional. We filled 12 senior positions in record time. The platform is intuitive and
+                the support team is world-class.</div>
+              <div class="testimonial-author">
+                <div class="author-avatar" style="background:linear-gradient(135deg,#10b981,#059669)">SK</div>
+                <div class="author-info">
+                  <h4>Sarah Kim</h4>
+                  <p>Head of Talent @ Stripe · New York</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-rating">★★★★★</div>
+              <div class="testimonial-text">From a junior dev earning $60K to a senior role at Meta earning $180K in
+                just 18 months — HireHub's career guidance and job matching made this journey possible. Absolutely
+                life-changing platform.</div>
+              <div class="testimonial-author">
+                <div class="author-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706)">AM</div>
+                <div class="author-info">
+                  <h4>Aryan Mehta</h4>
+                  <p>Staff Engineer @ Meta · Menlo Park</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-rating">★★★★★</div>
+              <div class="testimonial-text">The remote job section is phenomenal. Found a fully remote role with a US
+                company while living in Europe. The salary transparency and company reviews helped me negotiate a
+                fantastic package. 10/10!</div>
+              <div class="testimonial-author">
+                <div class="author-avatar" style="background:linear-gradient(135deg,#ec4899,#be185d)">LP</div>
+                <div class="author-info">
+                  <h4>Lena Petrov</h4>
+                  <p>Data Scientist @ Netflix · Remote</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-rating">★★★★★</div>
+              <div class="testimonial-text">Switched careers from finance to tech using HireHub's skill assessment tools
+                and job recommendations. The platform guided me every step of the way. Now I'm a product manager at a
+                top startup!</div>
+              <div class="testimonial-author">
+                <div class="author-avatar" style="background:linear-gradient(135deg,#0ea5e9,#0284c7)">MR</div>
+                <div class="author-info">
+                  <h4>Marcus Reid</h4>
+                  <p>Product Manager @ Figma · Austin</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-rating">★★★★★</div>
+              <div class="testimonial-text">The verified company badges and detailed salary ranges saved me so much
+                research time. Got my dream DevOps role in just 10 days! The application tracking and interview prep
+                tools are outstanding.</div>
+              <div class="testimonial-author">
+                <div class="author-avatar" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">PC</div>
+                <div class="author-info">
+                  <h4>Priya Chen</h4>
+                  <p>DevOps Lead @ Amazon · Seattle</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="testimonials-controls">
+          <button class="slider-btn" id="prev-btn" onclick="prevSlide()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <div class="slider-dots" id="slider-dots"></div>
+          <button class="slider-btn" id="next-btn" onclick="nextSlide()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter section" id="newsletter-section">
+      <div class="container">
+        <div class="newsletter-content" data-aos="fade-up">
+          <h2>🚀 Never Miss Your Dream Job</h2>
+          <p>Subscribe to our newsletter and get the latest job opportunities delivered straight to your inbox every
+            morning.</p>
+          <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+            <input type="email" placeholder="Enter your email address..." required />
+            <button type="submit">Subscribe Now</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- END HOME PAGE -->
+
+
+  <!-- ============================================
+     LOGIN PAGE
+     ============================================ -->
+  <div id="page-login" class="page">
+    <div class="auth-page">
+      <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+      </div>
+      <div class="auth-container">
+        <div class="auth-visual">
+          <div class="auth-visual-icon">💼</div>
+          <h2>Welcome Back!</h2>
+          <p>Sign in to access thousands of job opportunities and continue your career journey.</p>
+          <div class="auth-features">
+            <div class="auth-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>50,000+ active job listings</span>
+            </div>
+            <div class="auth-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+              <span>AI-powered job matching</span>
+            </div>
+            <div class="auth-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              <span>Verified, trusted companies</span>
+            </div>
+          </div>
+        </div>
+        <div class="auth-form-section">
+          <h2>Sign In</h2>
+          <p class="auth-subtitle">Don't have an account? <a href="#" onclick="showPage('register')"
+              style="color:var(--primary);font-weight:700">Create one free →</a></p>
+
+          <div class="social-auth">
+            <button class="social-auth-btn" onclick="showToast('Google login coming soon!')">
+              <span style="font-size:1.1rem">G</span> Google
+            </button>
+            <button class="social-auth-btn" onclick="showToast('GitHub login coming soon!')">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              GitHub
+            </button>
+          </div>
+
+          <div class="auth-divider"><span>or sign in with email</span></div>
+
+          <form class="auth-form" onsubmit="loginSubmit(event)">
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <div class="form-input-icon">
+                <svg class="icon-left" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <input class="form-input" type="email" placeholder="john@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password</label>
+              <div class="form-input-icon" style="position:relative">
+                <svg class="icon-left" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                <input class="form-input" type="password" id="login-password" placeholder="••••••••" required />
+                <span class="password-toggle" onclick="togglePassword('login-password',this)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="form-check-group">
+              <label class="form-check">
+                <input type="checkbox" /> Remember me
+              </label>
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%">
+              Sign In to HireHub
+            </button>
+          </form>
+
+          <div class="auth-switch">
+            New to HireHub? <a href="#" onclick="showPage('register')">Create a free account</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+     REGISTER PAGE
+     ============================================ -->
+  <div id="page-register" class="page">
+    <div class="auth-page">
+      <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+      </div>
+      <div class="auth-container" style="max-width:1000px">
+        <div class="auth-visual">
+          <div class="auth-visual-icon">🚀</div>
+          <h2>Join HireHub Today</h2>
+          <p>Create your free account and unlock access to thousands of exclusive job opportunities from top companies
+            worldwide.</p>
+          <div class="auth-features">
+            <div class="auth-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>Free forever — no credit card needed</span>
+            </div>
+            <div class="auth-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+              <span>AI-matched job recommendations</span>
+            </div>
+            <div class="auth-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              <span>Salary insights & career analytics</span>
+            </div>
+          </div>
+        </div>
+        <div class="auth-form-section" style="overflow-y:auto;max-height:90vh;padding:2rem 3rem">
+          <h2>Create Account</h2>
+          <p class="auth-subtitle">Already have an account? <a href="#" onclick="showPage('login')"
+              style="color:var(--primary);font-weight:700">Sign in →</a></p>
+
+          <div class="social-auth">
+            <button class="social-auth-btn" onclick="showToast('Google signup coming soon!')">
+              <span style="font-size:1.1rem">G</span> Google
+            </button>
+            <button class="social-auth-btn" onclick="showToast('GitHub signup coming soon!')">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              GitHub
+            </button>
+          </div>
+
+          <div class="auth-divider"><span>or register with email</span></div>
+
+          <form class="auth-form" onsubmit="registerSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input class="form-input" type="text" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input class="form-input" type="text" placeholder="Doe" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <div class="form-input-icon">
+                <svg class="icon-left" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <input class="form-input" type="email" placeholder="john@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <div class="form-input-icon">
+                <svg class="icon-left" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25H6.6a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.95a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.71 16a2 2 0 0 1 .29.92z" />
+                </svg>
+                <input class="form-input" type="tel" placeholder="+1 (555) 000-0000" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Password</label>
+                <div class="form-input-icon" style="position:relative">
+                  <svg class="icon-left" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                  <input class="form-input" type="password" id="reg-password" placeholder="Min 8 characters" required />
+                  <span class="password-toggle" onclick="togglePassword('reg-password',this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Confirm Password</label>
+                <div class="form-input-icon" style="position:relative">
+                  <svg class="icon-left" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                  <input class="form-input" type="password" id="reg-confirm" placeholder="Repeat password" required />
+                  <span class="password-toggle" onclick="togglePassword('reg-confirm',this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">I am joining as</label>
+              <div class="role-select">
+                <div class="role-option">
+                  <input type="radio" name="role" id="role-seeker" value="seeker" checked />
+                  <label class="role-label" for="role-seeker">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="var(--primary)" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    <span>Job Seeker</span>
+                  </label>
+                </div>
+                <div class="role-option">
+                  <input type="radio" name="role" id="role-recruiter" value="recruiter" />
+                  <label class="role-label" for="role-recruiter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="var(--primary)" stroke-width="2">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    </svg>
+                    <span>Recruiter</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <label class="form-check">
+              <input type="checkbox" required />
+              I agree to the <a href="#" style="color:var(--primary);font-weight:600">Terms of Service</a> and <a
+                href="#" style="color:var(--primary);font-weight:600">Privacy Policy</a>
+            </label>
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%">
+              🚀 Create Free Account
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+     JOBS PAGE
+     ============================================ -->
+  <div id="page-jobs" class="page">
+    <div class="jobs-page">
+      <div class="jobs-page-header">
+        <div class="container">
+          <h1>Browse All Jobs</h1>
+          <p>Discover <strong>50,000+</strong> opportunities from top companies worldwide</p>
+          <div class="jobs-search-bar">
+            <div class="search-field">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+              </svg>
+              <input type="text" placeholder="Job title, company, or keyword..." id="jobs-search-input"
+                oninput="filterJobs()" />
+            </div>
+            <div class="search-field">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <select id="location-filter" onchange="filterJobs()">
+                <option value="">All Locations</option>
+                <option value="remote">Remote</option>
+                <option value="new york">New York</option>
+                <option value="san francisco">San Francisco</option>
+                <option value="seattle">Seattle</option>
+                <option value="london">London</option>
+              </select>
+            </div>
+            <button class="search-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+              </svg>
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="jobs-layout">
+          <!-- SIDEBAR -->
+          <aside class="jobs-sidebar">
+            <div class="sidebar-card">
+              <h3>Job Type <button onclick="clearFilters()">Clear</button></h3>
+              <div class="filter-list">
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Full-time <span
+                    class="count">1,234</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Part-time <span
+                    class="count">456</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Contract <span
+                    class="count">789</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Remote <span
+                    class="count">2,341</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Internship <span
+                    class="count">234</span></label>
+              </div>
+            </div>
+
+            <div class="sidebar-card">
+              <h3>Experience Level</h3>
+              <div class="filter-list">
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Entry Level <span
+                    class="count">567</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Mid Level <span
+                    class="count">1,123</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Senior <span
+                    class="count">892</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Lead / Manager <span
+                    class="count">341</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Director+ <span
+                    class="count">178</span></label>
+              </div>
+            </div>
+
+            <div class="sidebar-card">
+              <h3>Salary Range</h3>
+              <input type="range" class="salary-range-input" min="0" max="300" value="150" id="salary-slider"
+                oninput="updateSalaryLabel(this.value)" />
+              <div class="salary-labels">
+                <span>$0K</span>
+                <span id="salary-value" style="color:var(--primary);font-weight:700">$150K</span>
+                <span>$300K+</span>
+              </div>
+            </div>
+
+            <div class="sidebar-card">
+              <h3>Skills</h3>
+              <div class="filter-list">
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> JavaScript <span
+                    class="count">2,341</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Python <span
+                    class="count">1,892</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> React <span
+                    class="count">1,567</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> AWS <span
+                    class="count">1,234</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> TypeScript <span
+                    class="count">1,109</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Node.js <span
+                    class="count">987</span></label>
+                <label class="filter-item"><input type="checkbox" onchange="filterJobs()"> Docker <span
+                    class="count">876</span></label>
+              </div>
+            </div>
+          </aside>
+
+          <!-- JOBS LIST -->
+          <main>
+            <div class="jobs-list-header">
+              <div class="jobs-count"><span>1,284</span> jobs found</div>
+              <select class="sort-dropdown">
+                <option>Most Relevant</option>
+                <option>Newest First</option>
+                <option>Highest Salary</option>
+                <option>Most Applied</option>
+              </select>
+            </div>
+
+            <div class="jobs-list" id="jobs-list">
+
+              <div class="job-list-card" onclick="showPage('job-detail')">
+                <div class="company-logo logo-google" style="width:56px;height:56px;font-size:1.3rem">G<div
+                    class="verified-badge">✓</div>
+                </div>
+                <div class="job-list-info">
+                  <div class="job-list-title">Senior Frontend Engineer</div>
+                  <div class="job-list-company">Google · Mountain View, CA · Remote</div>
+                  <div class="job-list-tags">
+                    <span class="badge badge-emerald">Remote</span>
+                    <span class="badge badge-primary">React</span>
+                    <span class="badge badge-violet">TypeScript</span>
+                    <span class="badge badge-slate">5+ yrs</span>
+                  </div>
+                </div>
+                <div class="job-list-actions">
+                  <span class="job-salary-tag">$180K–$240K</span>
+                  <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="job-list-card" onclick="showPage('job-detail')">
+                <div class="company-logo logo-meta" style="width:56px;height:56px;font-size:1.3rem">M<div
+                    class="verified-badge">✓</div>
+                </div>
+                <div class="job-list-info">
+                  <div class="job-list-title">AI/ML Research Engineer</div>
+                  <div class="job-list-company">Meta · Menlo Park, CA · Hybrid</div>
+                  <div class="job-list-tags">
+                    <span class="badge badge-violet">Hybrid</span>
+                    <span class="badge badge-primary">Python</span>
+                    <span class="badge badge-amber">PyTorch</span>
+                    <span class="badge badge-slate">3+ yrs</span>
+                  </div>
+                </div>
+                <div class="job-list-actions">
+                  <span class="job-salary-tag">$200K–$280K</span>
+                  <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="job-list-card" onclick="showPage('job-detail')">
+                <div class="company-logo logo-amazon" style="width:56px;height:56px;font-size:1.3rem">A<div
+                    class="verified-badge">✓</div>
+                </div>
+                <div class="job-list-info">
+                  <div class="job-list-title">Cloud Solutions Architect</div>
+                  <div class="job-list-company">Amazon AWS · Seattle, WA · Remote</div>
+                  <div class="job-list-tags">
+                    <span class="badge badge-emerald">Remote</span>
+                    <span class="badge badge-primary">AWS</span>
+                    <span class="badge badge-violet">Terraform</span>
+                    <span class="badge badge-slate">7+ yrs</span>
+                  </div>
+                </div>
+                <div class="job-list-actions">
+                  <span class="job-salary-tag">$220K–$300K</span>
+                  <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="job-list-card" onclick="showPage('job-detail')">
+                <div class="company-logo logo-netflix" style="width:56px;height:56px;font-size:1.3rem">N<div
+                    class="verified-badge">✓</div>
+                </div>
+                <div class="job-list-info">
+                  <div class="job-list-title">Senior Data Scientist</div>
+                  <div class="job-list-company">Netflix · Los Gatos, CA · Remote</div>
+                  <div class="job-list-tags">
+                    <span class="badge badge-emerald">Remote</span>
+                    <span class="badge badge-primary">Python</span>
+                    <span class="badge badge-rose">Spark</span>
+                    <span class="badge badge-slate">4+ yrs</span>
+                  </div>
+                </div>
+                <div class="job-list-actions">
+                  <span class="job-salary-tag">$190K–$260K</span>
+                  <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="job-list-card" onclick="showPage('job-detail')">
+                <div class="company-logo logo-stripe" style="width:56px;height:56px;font-size:1.3rem">S<div
+                    class="verified-badge">✓</div>
+                </div>
+                <div class="job-list-info">
+                  <div class="job-list-title">Backend Platform Engineer</div>
+                  <div class="job-list-company">Stripe · San Francisco, CA · Hybrid</div>
+                  <div class="job-list-tags">
+                    <span class="badge badge-violet">Hybrid</span>
+                    <span class="badge badge-primary">Go</span>
+                    <span class="badge badge-emerald">Rust</span>
+                    <span class="badge badge-slate">5+ yrs</span>
+                  </div>
+                </div>
+                <div class="job-list-actions">
+                  <span class="job-salary-tag">$195K–$270K</span>
+                  <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="job-list-card" onclick="showPage('job-detail')">
+                <div class="company-logo logo-apple" style="width:56px;height:56px;font-size:1.3rem">A<div
+                    class="verified-badge">✓</div>
+                </div>
+                <div class="job-list-info">
+                  <div class="job-list-title">iOS Developer (Swift)</div>
+                  <div class="job-list-company">Apple · Cupertino, CA · On-site</div>
+                  <div class="job-list-tags">
+                    <span class="badge badge-slate">On-site</span>
+                    <span class="badge badge-primary">Swift</span>
+                    <span class="badge badge-violet">SwiftUI</span>
+                    <span class="badge badge-slate">4+ yrs</span>
+                  </div>
+                </div>
+                <div class="job-list-actions">
+                  <span class="job-salary-tag">$185K–$250K</span>
+                  <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="job-list-card" onclick="showPage('job-detail')">
+                <div class="company-logo logo-spotify" style="width:56px;height:56px;font-size:1.3rem">S<div
+                    class="verified-badge">✓</div>
+                </div>
+                <div class="job-list-info">
+                  <div class="job-list-title">DevOps / SRE Engineer</div>
+                  <div class="job-list-company">Spotify · Stockholm, Sweden · Remote</div>
+                  <div class="job-list-tags">
+                    <span class="badge badge-emerald">Remote</span>
+                    <span class="badge badge-primary">Kubernetes</span>
+                    <span class="badge badge-violet">Helm</span>
+                    <span class="badge badge-slate">4+ yrs</span>
+                  </div>
+                </div>
+                <div class="job-list-actions">
+                  <span class="job-salary-tag">$170K–$230K</span>
+                  <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2">
+                      <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="pagination">
+              <button class="page-btn active">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <button class="page-btn">...</button>
+              <button class="page-btn">24</button>
+              <button class="page-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+     JOB DETAIL PAGE
+     ============================================ -->
+  <div id="page-job-detail" class="page">
+    <div class="job-detail-page">
+      <div class="job-detail-banner">
+        <div class="container">
+          <div class="job-detail-header">
+            <div class="job-detail-company">
+              <div class="job-detail-logo logo-google">G</div>
+              <div class="job-detail-info">
+                <h1>Senior Frontend Engineer</h1>
+                <div style="display:flex;align-items:center;gap:.5rem;margin-top:.25rem">
+                  <span style="font-size:1rem;font-weight:600;color:var(--slate-700)">Google</span>
+                  <span class="badge badge-emerald" style="font-size:.75rem">✓ Verified</span>
+                </div>
+                <div class="job-detail-meta">
+                  <span class="job-detail-meta-item">📍 Mountain View, CA · Remote</span>
+                  <span class="job-detail-meta-item">💼 Full-time</span>
+                  <span class="job-detail-meta-item">🎓 5+ years experience</span>
+                  <span class="job-detail-meta-item">📅 Posted 2 days ago</span>
+                  <span class="job-detail-meta-item">👥 248 applicants</span>
+                </div>
+              </div>
+            </div>
+            <div class="job-detail-actions">
+              <button class="btn btn-outline" onclick="showToast('Job saved!')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                </svg>
+                Save Job
+              </button>
+              <button class="btn btn-outline" onclick="showToast('Link copied!')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                </svg>
+                Share
+              </button>
+              <button class="btn btn-primary btn-lg" onclick="showToast('Application submitted! 🎉')">
+                🚀 Apply Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="job-detail-layout">
+          <div class="job-detail-content">
+            <div class="job-section">
+              <h2>About the Role</h2>
+              <p>We are looking for a talented and experienced Senior Frontend Engineer to join our world-class
+                engineering team at Google. In this role, you will be working on cutting-edge web applications that
+                impact billions of users worldwide. You'll collaborate with exceptional engineers, designers, and
+                product managers to build the next generation of Google's user experiences.</p>
+            </div>
+            <div class="job-section">
+              <h2>Responsibilities</h2>
+              <ul>
+                <li>Design, develop, and ship high-quality, scalable frontend features used by millions of users</li>
+                <li>Collaborate with cross-functional teams including design, product, and backend engineering</li>
+                <li>Write clean, maintainable, and well-tested code with a focus on performance</li>
+                <li>Mentor junior engineers and contribute to team growth through code reviews</li>
+                <li>Drive technical decision-making and architecture for frontend systems</li>
+                <li>Contribute to open-source projects and the broader engineering community</li>
+                <li>Participate in on-call rotations and incident response when needed</li>
+              </ul>
+            </div>
+            <div class="job-section">
+              <h2>Requirements</h2>
+              <ul>
+                <li>5+ years of professional frontend engineering experience</li>
+                <li>Expert-level proficiency in React, TypeScript, and modern JavaScript (ES6+)</li>
+                <li>Deep understanding of web performance optimization and core web vitals</li>
+                <li>Experience with state management solutions (Redux, Zustand, Jotai)</li>
+                <li>Proficiency with testing frameworks (Jest, React Testing Library, Cypress)</li>
+                <li>Strong understanding of CSS, responsive design, and accessibility (WCAG 2.1)</li>
+                <li>BS/MS in Computer Science or equivalent practical experience</li>
+              </ul>
+            </div>
+            <div class="job-section">
+              <h2>Nice to Have</h2>
+              <ul>
+                <li>Experience with Next.js, Server Components, and Edge functions</li>
+                <li>Knowledge of WebAssembly or WebGL for high-performance applications</li>
+                <li>Open-source contributions and a strong GitHub profile</li>
+                <li>Experience with design systems and component library creation</li>
+              </ul>
+            </div>
+            <div class="job-section">
+              <h2>Required Skills</h2>
+              <div class="skills-grid">
+                <span class="badge badge-primary">React</span>
+                <span class="badge badge-violet">TypeScript</span>
+                <span class="badge badge-emerald">Next.js</span>
+                <span class="badge badge-primary">GraphQL</span>
+                <span class="badge badge-slate">Jest</span>
+                <span class="badge badge-amber">Webpack</span>
+                <span class="badge badge-rose">CSS/SCSS</span>
+                <span class="badge badge-primary">Git</span>
+                <span class="badge badge-violet">Redux</span>
+                <span class="badge badge-emerald">REST APIs</span>
+              </div>
+            </div>
+            <div class="job-section">
+              <h2>Benefits & Perks</h2>
+              <ul>
+                <li>Comprehensive health, dental, and vision insurance for you and dependents</li>
+                <li>401(k) with generous company matching</li>
+                <li>$5,000 annual learning & development budget</li>
+                <li>Flexible remote work policy with quarterly team offsites</li>
+                <li>Free meals, snacks, and world-class on-site facilities</li>
+                <li>Equity package with accelerated vesting schedule</li>
+              </ul>
+            </div>
+          </div>
+
+          <aside class="job-detail-sidebar">
+            <div class="job-overview-card">
+              <h3>Job Overview</h3>
+              <div class="overview-items">
+                <div class="overview-item">
+                  <div class="overview-icon oi-1">💰</div>
+                  <div class="overview-text">
+                    <h4>Salary</h4>
+                    <p>$180K – $240K/yr</p>
+                  </div>
+                </div>
+                <div class="overview-item">
+                  <div class="overview-icon oi-2">📍</div>
+                  <div class="overview-text">
+                    <h4>Location</h4>
+                    <p>Remote / Mountain View</p>
+                  </div>
+                </div>
+                <div class="overview-item">
+                  <div class="overview-icon oi-3">💼</div>
+                  <div class="overview-text">
+                    <h4>Job Type</h4>
+                    <p>Full-time</p>
+                  </div>
+                </div>
+                <div class="overview-item">
+                  <div class="overview-icon oi-4">🎓</div>
+                  <div class="overview-text">
+                    <h4>Experience</h4>
+                    <p>5+ years</p>
+                  </div>
+                </div>
+                <div class="overview-item">
+                  <div class="overview-icon oi-5">📅</div>
+                  <div class="overview-text">
+                    <h4>Posted</h4>
+                    <p>2 days ago</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="job-overview-card">
+              <h3>About Google</h3>
+              <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
+                <div class="company-logo logo-google" style="width:50px;height:50px;font-size:1.2rem">G</div>
+                <div>
+                  <div style="font-weight:700;color:var(--slate-800)">Google LLC</div>
+                  <div style="font-size:.75rem;color:var(--slate-500)">Technology · 100,000+ employees</div>
+                </div>
+              </div>
+              <p style="font-size:.875rem;color:var(--slate-600);line-height:1.7;margin-bottom:1rem">Google is a global
+                technology leader focused on improving the ways people connect with information.</p>
+              <button class="btn btn-outline btn-sm" style="width:100%" onclick="showPage('company-detail')">View
+                Company Profile →</button>
+            </div>
+
+            <button class="btn btn-primary btn-lg" style="width:100%;margin-bottom:.75rem"
+              onclick="showToast('Application submitted! 🎉')">
+              🚀 Apply Now
+            </button>
+            <button class="btn btn-outline" style="width:100%" onclick="showToast('Job saved!')">Save for Later</button>
+          </aside>
+        </div>
+
+        <!-- Related Jobs -->
+        <div style="margin-bottom:4rem">
+          <h2 style="font-size:1.5rem;font-weight:700;color:var(--slate-800);margin-bottom:1.5rem">Similar Jobs You
+            Might Like</h2>
+          <div class="jobs-grid" style="grid-template-columns:repeat(3,1fr)">
+            <div class="job-card" onclick="showPage('job-detail')">
+              <div class="job-card-top">
+                <div class="job-company">
+                  <div class="company-logo logo-meta">M</div>
+                  <div class="company-info">
+                    <h4>Meta</h4>
+                    <p>Menlo Park</p>
+                  </div>
+                </div>
+                <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                  </svg></button>
+              </div>
+              <div class="job-title">Staff Frontend Engineer</div>
+              <div class="job-meta"><span class="meta-item">📍 Hybrid</span><span class="meta-item">💼 7+ yrs</span>
+              </div>
+              <div class="job-skills"><span class="badge badge-primary">React</span><span
+                  class="badge badge-violet">GraphQL</span></div>
+              <div class="job-card-footer">
+                <div>
+                  <div class="salary-range">$220K–$300K</div>
+                </div><button class="apply-btn">Apply</button>
+              </div>
+            </div>
+            <div class="job-card" onclick="showPage('job-detail')">
+              <div class="job-card-top">
+                <div class="job-company">
+                  <div class="company-logo logo-microsoft">M</div>
+                  <div class="company-info">
+                    <h4>Microsoft</h4>
+                    <p>Redmond, WA</p>
+                  </div>
+                </div>
+                <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                  </svg></button>
+              </div>
+              <div class="job-title">Principal Frontend Dev</div>
+              <div class="job-meta"><span class="meta-item">📍 Hybrid</span><span class="meta-item">💼 8+ yrs</span>
+              </div>
+              <div class="job-skills"><span class="badge badge-primary">TypeScript</span><span
+                  class="badge badge-emerald">Azure</span></div>
+              <div class="job-card-footer">
+                <div>
+                  <div class="salary-range">$200K–$280K</div>
+                </div><button class="apply-btn">Apply</button>
+              </div>
+            </div>
+            <div class="job-card" onclick="showPage('job-detail')">
+              <div class="job-card-top">
+                <div class="job-company">
+                  <div class="company-logo logo-airbnb">A</div>
+                  <div class="company-info">
+                    <h4>Airbnb</h4>
+                    <p>San Francisco</p>
+                  </div>
+                </div>
+                <button class="save-btn" onclick="event.stopPropagation();toggleSave(this)"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                  </svg></button>
+              </div>
+              <div class="job-title">UI Engineer, Design Systems</div>
+              <div class="job-meta"><span class="meta-item">📍 Remote</span><span class="meta-item">💼 5+ yrs</span>
+              </div>
+              <div class="job-skills"><span class="badge badge-primary">React</span><span
+                  class="badge badge-rose">Storybook</span></div>
+              <div class="job-card-footer">
+                <div>
+                  <div class="salary-range">$175K–$240K</div>
+                </div><button class="apply-btn">Apply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+     COMPANY DETAIL PAGE
+     ============================================ -->
+  <div id="page-company-detail" class="page">
+    <div class="company-detail-page">
+      <div class="company-banner"></div>
+
+      <div class="company-profile">
+        <div class="container">
+          <div class="company-profile-inner">
+            <div class="company-profile-left">
+              <div class="company-profile-logo logo-google">G</div>
+              <div class="company-profile-info">
+                <h1>Google LLC <span class="badge badge-emerald" style="font-size:.75rem">✓ Verified</span></h1>
+                <p>🌐 Technology · Mountain View, CA · 100,000+ employees · Founded 1998</p>
+              </div>
+            </div>
+            <div style="display:flex;gap:.75rem;padding-bottom:.5rem">
+              <button class="btn btn-outline btn-sm" onclick="showToast('Following Google!')">
+                ⭐ Follow
+              </button>
+              <button class="btn btn-primary" onclick="showPage('jobs')">
+                View 128 Open Jobs
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="company-detail-tabs">
+        <div class="container">
+          <div class="company-tabs">
+            <div class="company-tab active" onclick="setTab(this)">Overview</div>
+            <div class="company-tab" onclick="setTab(this)">Open Positions (128)</div>
+            <div class="company-tab" onclick="setTab(this)">Benefits</div>
+            <div class="company-tab" onclick="setTab(this)">Reviews (4.8★)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="company-detail-layout">
+          <main>
+            <div class="company-content-card">
+              <h2>About Google</h2>
+              <p>Google LLC is an American multinational technology company focusing on search engine technology, online
+                advertising, cloud computing, quantum computing, e-commerce, AI, and consumer electronics. It is one of
+                the Big Five American information technology companies and consistently ranks as one of the world's most
+                innovative and valuable companies.</p>
+              <br />
+              <p>At Google, we believe that technology can fundamentally improve people's lives. We're committed to
+                building products and services that create value for billions of users around the world, from Search and
+                Maps to YouTube, Android, and the Google Cloud Platform. Our culture fosters creativity, collaboration,
+                and moonshot thinking — we encourage Googlers to spend 20% of their time on passion projects that could
+                become the next big thing.</p>
+            </div>
+
+            <div class="company-content-card">
+              <h2>Benefits & Perks</h2>
+              <div class="benefits-grid">
+                <div class="benefit-card">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--primary)" stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                  </svg>
+                  <h4>Health Insurance</h4>
+                </div>
+                <div class="benefit-card">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--primary)" stroke-width="2">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                  <h4>Wellness Programs</h4>
+                </div>
+                <div class="benefit-card">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--primary)" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                  <h4>Equity & Stocks</h4>
+                </div>
+                <div class="benefit-card">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--primary)" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="17" x2="12" y2="21" />
+                  </svg>
+                  <h4>Remote Work</h4>
+                </div>
+                <div class="benefit-card">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--primary)" stroke-width="2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                  </svg>
+                  <h4>Learning Budget</h4>
+                </div>
+                <div class="benefit-card">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--primary)" stroke-width="2">
+                    <circle cx="12" cy="8" r="7" />
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                  </svg>
+                  <h4>Career Growth</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="company-content-card">
+              <h2>Open Positions</h2>
+              <div class="jobs-list" style="display:flex;flex-direction:column;gap:1rem">
+                <div class="job-list-card" onclick="showPage('job-detail')">
+                  <div class="company-logo logo-google" style="width:48px;height:48px;font-size:1rem">G</div>
+                  <div class="job-list-info">
+                    <div class="job-list-title">Senior Frontend Engineer</div>
+                    <div class="job-list-company">Remote / Mountain View · Full-time</div>
+                    <div class="job-list-tags"><span class="badge badge-emerald">Remote</span><span
+                        class="badge badge-primary">React</span><span class="badge badge-violet">TypeScript</span></div>
+                  </div>
+                  <div class="job-list-actions">
+                    <span class="job-salary-tag">$180K–$240K</span>
+                  </div>
+                </div>
+                <div class="job-list-card" onclick="showPage('job-detail')">
+                  <div class="company-logo logo-google" style="width:48px;height:48px;font-size:1rem">G</div>
+                  <div class="job-list-info">
+                    <div class="job-list-title">AI Research Scientist</div>
+                    <div class="job-list-company">Mountain View · Full-time</div>
+                    <div class="job-list-tags"><span class="badge badge-slate">On-site</span><span
+                        class="badge badge-primary">Python</span><span class="badge badge-violet">TensorFlow</span>
+                    </div>
+                  </div>
+                  <div class="job-list-actions">
+                    <span class="job-salary-tag">$250K–$350K</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+
+          <aside style="position:sticky;top:100px;height:fit-content">
+            <div class="company-sidebar-card">
+              <h3>Company Info</h3>
+              <div class="company-info-list">
+                <div class="company-info-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--slate-400)" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  </svg>
+                  <div><strong>Industry</strong><span>Technology / Software</span></div>
+                </div>
+                <div class="company-info-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--slate-400)" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                  <div><strong>Company Size</strong><span>100,000+ employees</span></div>
+                </div>
+                <div class="company-info-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--slate-400)" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  <div><strong>Founded</strong><span>1998</span></div>
+                </div>
+                <div class="company-info-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--slate-400)" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  </svg>
+                  <div><strong>Headquarters</strong><span>Mountain View, CA, USA</span></div>
+                </div>
+                <div class="company-info-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="var(--slate-400)" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  <div><strong>Website</strong><span>google.com</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="company-sidebar-card">
+              <h3>Company Rating</h3>
+              <div style="text-align:center;padding:1rem 0">
+                <div
+                  style="font-size:3rem;font-weight:800;background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">
+                  4.8</div>
+                <div style="color:#f59e0b;font-size:1.25rem;margin:.5rem 0">★★★★★</div>
+                <div style="font-size:.875rem;color:var(--slate-500)">Based on 42,819 reviews</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:.75rem;margin-top:1rem">
+                <div style="display:flex;align-items:center;gap:.75rem;font-size:.875rem">
+                  <span style="width:120px;color:var(--slate-500)">Culture</span>
+                  <div style="flex:1;height:6px;background:var(--slate-100);border-radius:9999px;overflow:hidden">
+                    <div style="height:100%;width:92%;background:var(--gradient-primary);border-radius:9999px"></div>
+                  </div>
+                  <span style="font-weight:700;color:var(--slate-700)">4.6</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:.75rem;font-size:.875rem">
+                  <span style="width:120px;color:var(--slate-500)">Work-Life Balance</span>
+                  <div style="flex:1;height:6px;background:var(--slate-100);border-radius:9999px;overflow:hidden">
+                    <div style="height:100%;width:78%;background:var(--gradient-primary);border-radius:9999px"></div>
+                  </div>
+                  <span style="font-weight:700;color:var(--slate-700)">3.9</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:.75rem;font-size:.875rem">
+                  <span style="width:120px;color:var(--slate-500)">Compensation</span>
+                  <div style="flex:1;height:6px;background:var(--slate-100);border-radius:9999px;overflow:hidden">
+                    <div style="height:100%;width:96%;background:var(--gradient-primary);border-radius:9999px"></div>
+                  </div>
+                  <span style="font-weight:700;color:var(--slate-700)">4.8</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:.75rem;font-size:.875rem">
+                  <span style="width:120px;color:var(--slate-500)">Growth</span>
+                  <div style="flex:1;height:6px;background:var(--slate-100);border-radius:9999px;overflow:hidden">
+                    <div style="height:100%;width:88%;background:var(--gradient-primary);border-radius:9999px"></div>
+                  </div>
+                  <span style="font-weight:700;color:var(--slate-700)">4.4</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:1rem">
+            <div class="logo-icon">💼</div>
+            <span class="logo-text">HireHub</span>
+          </div>
+          <p>The world's most trusted job platform connecting exceptional talent with world-class companies. Find your
+            dream job or hire the perfect candidate today.</p>
+          <div class="social-links">
+            <a class="social-link" href="#" title="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+              </svg>
+            </a>
+            <a class="social-link" href="#" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a class="social-link" href="#" title="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+            <a class="social-link" href="#" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For Job Seekers</h4>
+          <ul>
+            <li><a href="#" onclick="showPage('jobs')">Browse Jobs</a></li>
+            <li><a href="#">Career Advice</a></li>
+            <li><a href="#">Salary Guide</a></li>
+            <li><a href="#">Resume Builder</a></li>
+            <li><a href="#">Interview Prep</a></li>
+            <li><a href="#">Skill Assessments</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>For Employers</h4>
+          <ul>
+            <li><a href="#">Post a Job</a></li>
+            <li><a href="#">Talent Search</a></li>
+            <li><a href="#">ATS Integration</a></li>
+            <li><a href="#">Employer Branding</a></li>
+            <li><a href="#">Pricing Plans</a></li>
+            <li><a href="#">Recruiter Tools</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Press & Media</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers at HireHub</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Partnership</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 <span>HireHub</span>. All rights reserved. Made with ❤️ for job seekers worldwide.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top -->
+  <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981"
+      stroke-width="2">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+      <polyline points="22 4 12 14.01 9 11.01" />
+    </svg>
+    <span id="toast-message">Done!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
