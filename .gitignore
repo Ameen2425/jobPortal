@@ -1,0 +1,26 @@
+# Environments
+.env
+.env.local
+venv/
+env/
+ENV/
+
+# Python & Database
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+mysql_data/
+*.pid
+
+# Node & Frontend
+node_modules/
+.npm/
+.eslintcache
+*.log
+
+# System & IDE
+.DS_Store
+.vscode/
+.idea/
+.gemini/
