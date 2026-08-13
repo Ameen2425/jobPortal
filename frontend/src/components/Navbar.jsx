@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { NotificationDropdown } from './NotificationDropdown';
-import { Briefcase, User, LogOut, LayoutDashboard, Sparkles, PlusCircle, Search } from 'lucide-react';
+import { Briefcase, User, LogOut, LayoutDashboard, Sparkles, PlusCircle, Search, Menu, X } from 'lucide-react';
 
 export const Navbar = () => {
   const { user, logout, isJobSeeker, isRecruiter, isAdmin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const handleLogout = () => {
     logout();
+    setMobileMenuOpen(false);
     navigate('/login');
   };
 
@@ -20,7 +23,7 @@ export const Navbar = () => {
     <nav className="navbar">
       <div className="container-xl navbar-container">
         {/* Brand Logo */}
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand" onClick={() => setMobileMenuOpen(false)}>
           <div className="brand-icon">
             <Briefcase size={22} />
           </div>
@@ -30,8 +33,8 @@ export const Navbar = () => {
           </span>
         </Link>
 
-        {/* Center Nav Items */}
-        <ul className="nav-links">
+        {/* Desktop Nav Items */}
+        <ul className="nav-links desktop-only">
           <li>
             <Link to="/jobs" className={`nav-link ${isActive('/jobs') ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
               <Search size={16} /> Explore Jobs
@@ -77,8 +80,8 @@ export const Navbar = () => {
           )}
         </ul>
 
-        {/* Right Action Menu */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        {/* Right Desktop Action Menu */}
+        <div className="desktop-only" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           {user && isRecruiter && (
             <Link to="/recruiter/jobs/create" className="btn btn-primary btn-sm">
               <PlusCircle size={16} /> Post Job
@@ -119,7 +122,79 @@ export const Navbar = () => {
             </div>
           )}
         </div>
+
+        {/* Mobile Hamburger Toggle */}
+        <div className="mobile-only" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          {user && <NotificationDropdown />}
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+            className="btn btn-secondary btn-sm" 
+            style={{ padding: '0.5rem', borderRadius: 'var(--radius-md)' }}
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Drawer Dropdown */}
+      {mobileMenuOpen && (
+        <div className="mobile-menu-drawer animate-fade-in">
+          <Link to="/jobs" onClick={() => setMobileMenuOpen(false)} className="mobile-nav-link">
+            🔍 Explore Jobs
+          </Link>
+
+          {user && isJobSeeker && (
+            <>
+              <Link to="/job-seeker/dashboard" onClick={() => setMobileMenuOpen(false)} className="mobile-nav-link">
+                📊 Job Seeker Dashboard
+              </Link>
+              <Link to="/job-seeker/recommendations" onClick={() => setMobileMenuOpen(false)} className="mobile-nav-link">
+                ✨ AI Matches
+              </Link>
+              <Link to="/job-seeker/profile" onClick={() => setMobileMenuOpen(false)} className="mobile-nav-link">
+                👤 My Profile
+              </Link>
+              <Link to="/job-seeker/resume-analysis" onClick={() => setMobileMenuOpen(false)} className="mobile-nav-link">
+                📄 ATS Resume Analyzer
+              </Link>
+            </>
+          )}
+
+          {user && isRecruiter && (
+            <>
+              <Link to="/recruiter/dashboard" onClick={() => setMobileMenuOpen(false)} className="mobile-nav-link">
+                💼 Recruiter Dashboard
+              </Link>
+              <Link to="/recruiter/jobs" onClick={() => setMobileMenuOpen(false)} className="mobile-nav-link">
+                📋 Manage Jobs
+              </Link>
+              <Link to="/recruiter/jobs/create" onClick={() => setMobileMenuOpen(false)} className="mobile-nav-link" style={{ color: 'var(--primary-600)', fontWeight: 800 }}>
+                ➕ Post New Job
+              </Link>
+            </>
+          )}
+
+          {user && isAdmin && (
+            <Link to="/admin/dashboard" onClick={() => setMobileMenuOpen(false)} className="mobile-nav-link">
+              🛡️ Admin Control Panel
+            </Link>
+          )}
+
+          <div style={{ marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid var(--slate-200)' }}>
+            {user ? (
+              <button onClick={handleLogout} className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>
+                <LogOut size={16} /> Log Out
+              </button>
+            ) : (
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="btn btn-secondary" style={{ justifyContent: 'center' }}>Log In</Link>
+                <Link to="/register" onClick={() => setMobileMenuOpen(false)} className="btn btn-primary" style={{ justifyContent: 'center' }}>Register</Link>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
